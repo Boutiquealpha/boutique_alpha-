@@ -220,11 +220,16 @@ font-weight:bold;
 let cart = [];
 
 function addToCart(name, price){
+  // جلوگیری از قیمت خراب
+if(!price || isNaN(price)){
+alert("خطا در قیمت محصول ❌");
+return;
+}
+
 cart.push({name, price});
 document.getElementById("cartCount").innerText = cart.length;
 alert(name + " اضافه شد 🛒");
 }
-
 function showCart(){
 
 if(cart.length === 0){
@@ -247,3 +252,4 @@ window.open("https://wa.me/989375294372?text=" + message, "_blank");
 
 </script>
 
+</body>
