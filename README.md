@@ -194,7 +194,7 @@ font-weight:bold;
 <P>رنگ بندی:4رنگ</p>
 <P>سایز فری(38/44)</p>
 <p>قیمت: 1750000 تومان</p>
-<button onclick="addToCart('شومیز شیشه‌ای',1750000)">:heavy_plus_sign: افزودن به سبد</button>
+<button onclick="addToCart('شومیزشیشه ای',175000)">➕ افزودن به سبد</button>
 </div>
 
 
