@@ -192,7 +192,7 @@ font-weight:bold;
 <h3>شومیز شیشه‌ای</h3>
 <img src="https://i.ibb.co/chP3frX9/filename.jpg" width="300">
 <P>رنگ بندی:4رنگ</p>
-<P>سایز فری(38/44)</p
+<P>سایز فری(38/44)</p>
 <p>قیمت: 1750000 تومان</p>
 <button onclick="addToCart('شومیز شیشه‌ای',1750000)">:heavy_plus_sign: افزودن به سبد</button>
 </div>
