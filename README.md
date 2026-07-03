@@ -320,4 +320,3 @@ window.open("https://wa.me/989375294372?text="+encodeURIComponent(msg), "_blank"
 </script>
 </script>
 
-</body>
