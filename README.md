@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+خوش آمدید
 <html lang="fa">
 <head>
 <meta charset="UTF-8">
