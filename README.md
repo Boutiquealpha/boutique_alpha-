@@ -220,16 +220,42 @@ font-weight:bold;
 let cart = [];
 
 function addToCart(name, price){
-  // جلوگیری از قیمت خراب
-if(!price || isNaN(price)){
-alert("خطا در قیمت محصول ❌");
-return;
+
+let item = cart.find(p => p.name === name);
+
+if(item){
+item.qty += 1;
+}else{
+cart.push({name:name, price:price, qty:1});
 }
 
-cart.push({name, price});
-document.getElementById("cartCount").innerText = cart.length;
+updateCartCount();
 alert(name + " اضافه شد 🛒");
 }
+
+function updateCartCount(){
+let count = 0;
+cart.forEach(i => count += i.qty);
+document.getElementById("cartCount").innerText = count;
+}
+
+function removeItem(name){
+cart = cart.filter(i => i.name !== name);
+updateCartCount();
+renderCart();
+}
+
+function changeQty(name, type){
+let item = cart.find(i => i.name === name);
+if(!item) return;
+
+if(type === "plus") item.qty++;
+if(type === "minus" && item.qty > 1) item.qty--;
+
+renderCart();
+updateCartCount();
+}
+
 function showCart(){
 
 if(cart.length === 0){
@@ -237,19 +263,61 @@ alert("سبد خرید خالیه");
 return;
 }
 
-let message = "🛒 سفارش جدید:%0A";
-let total = 0;
-
-cart.forEach((item, i) => {
-message += (i+1) + "- " + item.name + " - " + item.price + " تومان%0A";
-total += item.price;
-});
-
-message += "%0A💰 مجموع: " + total + " تومان";
-
-window.open("https://wa.me/989375294372?text=" + message, "_blank");
+renderCart();
+document.getElementById("cartModal").style.display = "block";
 }
 
+function renderCart(){
+
+let box = document.getElementById("cartItems");
+box.innerHTML = "";
+
+cart.forEach(item => {
+
+box.innerHTML += 
+<div style="background:#fff;margin:10px;padding:10px;border-radius:10px">
+<h4>${item.name}</h4>
+<p>${item.price} تومان</p>
+
+<button onclick="changeQty('${item.name}','minus')">-</button>
+${item.qty}
+<button onclick="changeQty('${item.name}','plus')">+</button>
+
+<button onclick="removeItem('${item.name}')">❌ حذف</button>
+</div>
+;
+
+});
+}
+
+function checkout(){
+
+let name = document.getElementById("cusName").value;
+let phone = document.getElementById("cusPhone").value;
+let address = document.getElementById("cusAddress").value;
+
+if(!name || !phone){
+alert("مشخصات کامل نیست ❌");
+return;
+}
+
+let msg = "🛒 سفارش جدید:%0A";
+let total = 0;
+
+cart.forEach(i=>{
+msg += i.name + " x" + i.qty + "%0A";
+total += i.price * i.qty;
+});
+
+msg += "%0A💰 مجموع: " + total;
+msg += "%0A👤 نام: " + name;
+msg += "%0A📞 تلفن: " + phone;
+msg += "%0A🏠 آدرس: " + address;
+
+window.open("https://wa.me/989375294372?text="+encodeURIComponent(msg), "_blank");
+}
+
+</script>
 </script>
 
 </body>
