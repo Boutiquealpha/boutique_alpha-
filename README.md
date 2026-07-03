@@ -247,5 +247,3 @@ window.open("https://wa.me/989375294372?text=" + message, "_blank");
 
 </script>
 
-</body>
-</html>
