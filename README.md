@@ -205,8 +205,8 @@ font-weight:bold;
 <p>📍 ماهشهر، ایران</p>
 
 <p>📸 
-<a href="https://instagram.com/boutique_alphaa_" target="_blank">
-@boutique_alphaa_
+<a href="https://instagram.com/boutique.alphaa_" target="_blank">
+@boutique.alphaa_
 </a>
 </p>
 
